@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vila</title>
+    <link rel="stylesheet" href="vila.css">
+</head>
+<body>
+    <div class="container">
+        <div class="main-content">
+            <p id="message">Olá, <span id="playerName">Jogador</span>! Este é o reino, e a princesa foi levada para um calabouço distante. Para chegar até ela, você precisa escolher entre dois caminhos. Qual deles você irá seguir?</p>
+            <div id="buttons" class="buttons">
+                <button onclick="showTransition('floresta')">Ir para a Floresta</button>
+                <button onclick="showTransition('pantano')">Ir para o Pântano</button>
+            </div>
+            <div id="transition" class="transition">
+                <p id="transition-text"></p>
+                <button id="continue-button" onclick="continueToDestination()">Continuar</button>
+            </div>
+        </div>
+    </div>
+    <script src="vila.js"></script>
+</body>
+</html>

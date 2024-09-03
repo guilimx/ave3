@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fim da Jornada</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        #story-container {
+            max-width: 800px;
+            text-align: center;
+            background-color: #000033; /* Azul marinho escuro */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #0056b3; /* Azul escuro */
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #003d7a; /* Azul mais escuro */
+        }
+    </style>
+</head>
+<body>
+    <div id="story-container">
+        <h1>Sua Jornada</h1>
+        <p id="story"></p>
+        <!-- Adicionando o botão "Repetir" -->
+        <a href="hub.html" class="button">Repetir</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const outcome = urlParams.get('resultado');
+            const caminho = urlParams.get('caminho');
+            const playerName = localStorage.getItem('playerName') || 'Herói';
+            let storyText = `O herói ${playerName} começou sua jornada na vila. `;
+
+            if (outcome === 'sucesso') {
+                storyText += `Com coragem e inteligência, você enfrentou os desafios e resolveu os enigmas. Sua perseverança o levou a salvar a princesa e restaurar a paz ao reino. Parabéns, ${playerName}! Sua lenda será contada por gerações.`;
+            } else {
+                if (caminho == 1) {
+                    storyText += 'Ao enfrentar o enigma na masmorra, você escolheu o caminho marcado pelo dragão de pedra. Infelizmente, esse foi um erro fatal, e você não conseguiu salvar a princesa.';
+                } else if (caminho == 3) {
+                    storyText += 'Ao enfrentar o enigma na masmorra, você escolheu o caminho marcado pelo sol radiante. Infelizmente, esse caminho era uma armadilha, e você foi derrotado antes de conseguir salvar a princesa.';
+                } else {
+                    storyText += 'Infelizmente, durante sua jornada, você cometeu um erro crucial e não conseguiu salvar a princesa. Seu nome será lembrado, mas a paz no reino não foi restaurada.';
+                }
+            }
+
+            document.getElementById('story').textContent = storyText;
+        });
+    </script>
+</body>
+</html>

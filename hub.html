@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub do Jogo</title>
+    <link rel="stylesheet" href="hub.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Salve a Princesa</h1>
+        <button id="startButton"></button>
+    </div>
+
+    <!-- Modal para o nome do jogador -->
+    <div id="nameModal" class="modal">
+        <div class="modal-content">
+            <h2>Para começarmos, qual é o seu nome?</h2>
+            <input type="text" id="playerName" placeholder="Digite seu nome">
+            <button id="submitNameButton">Enviar</button>
+        </div>
+    </div>
+
+    <!-- Modal para a história -->
+    <div id="storyModal" class="modal">
+        <div class="modal-content">
+            <h2>A Princesa Foi Sequestrada</h2>
+            <p id="storyText"></p>
+            <button id="startGameButton">Começar o Jogo</button>
+        </div>
+    </div>
+
+    <script src="hub.js"></script>
+</body>
+</html>
